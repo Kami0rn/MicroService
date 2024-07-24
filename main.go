@@ -6,11 +6,11 @@ import (
 	"os"
 
 	"github.com/Kami0rn/MicroService/config"
+	"github.com/Kami0rn/MicroService/pkg/database"
 )
 
 func main() {
 	ctx := context.Background()
-	_ = ctx
 
 	// Initialize Config 
 	cfg := config.LoadConfig(func () string{
@@ -20,5 +20,11 @@ func main() {
 		return os.Args[1]
 	}())
 
-	log.Println(cfg)
+	//Database connection
+	db :=  database.DbConn(ctx, &cfg)
+	defer db.Disconnect(ctx)
+
+
+	log.Println(db)
+
 }
