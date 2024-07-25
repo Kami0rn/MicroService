@@ -1,11 +1,22 @@
 package itemHandler
 
-import "github.com/Kami0rn/MicroService/module/item/itemRepository"
+import (
+	"github.com/Kami0rn/MicroService/config"
+	"github.com/Kami0rn/MicroService/module/item/itemUsecase"
+)
 
 type (
-	ItemHandlerService interface{}
+	ItemHttpHandlerService interface{}
 
-	itemHandler struct {
-		itemRepository itemRepository.ItemRepositoryService
+	itemHttpHandler struct {
+		cfg         *config.Config
+		itemUsecase itemUsecase.ItemUsecaseService
 	}
 )
+
+func NewItemHttpHandler(cfg *config.Config, itemUsecase itemUsecase.ItemUsecaseService) ItemHttpHandlerService {
+	return &itemHttpHandler{
+		cfg:         cfg,
+		itemUsecase: itemUsecase,
+	}
+}
