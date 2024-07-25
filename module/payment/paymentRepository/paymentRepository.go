@@ -20,5 +20,5 @@ func NewPaymentRepository (db *mongo.Client) PaymentRepositoryService {
 }
 
 func (r *paymentRepository) paymentDbConn(pctx context.Context, cfg *config.Config) *mongo.Database {
-
+	return r.db.Database("payment_db")
 }
