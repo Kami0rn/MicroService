@@ -47,7 +47,7 @@ type (
 		AuthUrl     string
 		PlayerUrl   string
 		ItemUrl     string
-		InvetoryUrl string
+		InventoryUrl string
 		PaymentUrl  string
 	}
 
@@ -99,7 +99,7 @@ func LoadConfig(path string) Config {
 			AuthUrl: os.Getenv("GRPC_AUTH_URL"),
 			PlayerUrl: os.Getenv("GRPC_PLAYER_URL"),
 			ItemUrl: os.Getenv("GRPC_ITEM_URL"),
-			InvetoryUrl: os.Getenv("GRPC_INVENTORY_URL"),
+			InventoryUrl: os.Getenv("GRPC_INVENTORY_URL"),
 			PaymentUrl: os.Getenv("GRPC_PAYMENT_URL"),
 		},
 		Paginate: Paginate{

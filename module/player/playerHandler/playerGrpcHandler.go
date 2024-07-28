@@ -1,13 +1,34 @@
 package playerHandler
 
-import "github.com/Kami0rn/MicroService/module/player/playerUsecase"
+import (
+	"context"
+
+	playerPb "github.com/Kami0rn/MicroService/module/player/playerPb"
+	"github.com/Kami0rn/MicroService/module/player/playerUsecase"
+)
 
 type (
-	playerGrpcHandlerService struct {
+	playerGrpcHandler struct {
+		playerPb.UnimplementedPlayerGrpcServiceServer
 		playerUsecase playerUsecase.PlayerUsecaseService
 	}
 )
 
-func NewPlayerGrpcHandler (playerUsecase playerUsecase.PlayerUsecaseService) *playerGrpcHandlerService{
-	return &playerGrpcHandlerService{playerUsecase}
+func NewPlayerGrpcHandler (playerUsecase playerUsecase.PlayerUsecaseService) *playerGrpcHandler{
+	return &playerGrpcHandler{
+		playerUsecase : playerUsecase,
+	}
+}
+
+func (g *playerGrpcHandler) CredentialSearch(ctx context.Context , req *playerPb.CredentialSearchReq) (*playerPb.PlayerProfile,error) {
+	return nil,nil
+}
+
+func (g *playerGrpcHandler) FindOnePlayerProfileToRefresh (ctx context.Context, req *playerPb.FindOnePlayerProfileToRefreshReq)(*playerPb.PlayerProfile,error) {
+	return nil,nil
+}
+	
+
+func (g *playerGrpcHandler) GetPlayerSavingAccount (ctx context.Context , req *playerPb.GetPlayerSavingAccountReq)(*playerPb.GetPlayerSavingAccountRes , error) {
+	return nil,nil
 }

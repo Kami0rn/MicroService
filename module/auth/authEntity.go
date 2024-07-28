@@ -8,17 +8,17 @@ import (
 
 type (
 	Credential struct {
-		Id          primitive.ObjectID `json:"_id" bson:"_id,omitempty "`
+		Id          primitive.ObjectID `json:"_id" bson:"_id,omitempty"`
 		PlayerId    string             `json:"player_id" bson:"player_id"`
 		RoleCode    int                `json:"role_code" bson:"role_code"`
-		AccessToken string             `json:"access_token bson:"access_token"`
+		AccessToken string             `json:"access_token" bson:"access_token"`
 		// RefreshToken string    `json:"refresh_token bson:"refresh_token"`
-		CreateAt time.Time `json:"create_at"`
-		UpdateAt time.Time `json:"update_at"`
+		CreateAt time.Time `json:"create_at" bson:"create_at"`
+		UpdateAt time.Time `json:"update_at" bson:"update_at"`
 	}
 
 	Role struct {
-		Id    primitive.ObjectID `json:"_id" bson:"_id,omitempty "`
+		Id    primitive.ObjectID `json:"_id" bson:"_id,omitempty"`
 		Title string             `json:"title" bson:"title"`
 		Code  int                `json:"code" bson:"code"`
 	}
